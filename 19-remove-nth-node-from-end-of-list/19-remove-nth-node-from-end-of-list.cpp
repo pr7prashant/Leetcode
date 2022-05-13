@@ -14,6 +14,7 @@ public:
         ListNode* temp = head;
         while (n--) temp = temp->next;
         
+        // If nth node is head
         if (!temp) {
             ListNode* del = head;
             head = head->next;
