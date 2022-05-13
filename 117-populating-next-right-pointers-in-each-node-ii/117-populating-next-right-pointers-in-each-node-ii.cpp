@@ -18,37 +18,24 @@ public:
 
 class Solution {
 public:
-    // vector<vector<Node*>> arr;
     queue<Node*> q;
     
     Node* connect(Node* root) {
         if (!root) return nullptr;
         
         q.push(root);
-        
         while (!q.empty()) {
             int s = q.size();
-            // vector<Node*> temp;
             Node* prev = nullptr;
             while (s--) {
                 Node* curr = q.front();
                 q.pop();
-                // temp.push_back(curr);
                 if (curr->left) q.push(curr->left);
                 if (curr->right) q.push(curr->right);
                 if (prev) prev->next = curr;
                 prev = curr;
             }
-            // arr.push_back(temp);
         }
-        
-        // for (vector<Node*> v : arr) {
-        //     for (int i = 1; i < v.size(); i++) {
-        //         Node* prev = v[i-1];
-        //         Node* curr = v[i];
-        //         prev->next = curr;
-        //     }
-        // }
         
         return root;
     }
