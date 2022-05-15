@@ -32,9 +32,26 @@ public:
     }
     
     int deepestLeavesSum(TreeNode* root) {
-        max_depth = 0;
-        sum = 0;
-        traverse(root, 0);
+        // max_depth = 0;
+        // sum = 0;
+        // traverse(root, 0);
+        // return sum;
+        
+        int sum = 0;
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        while (!q.empty()) {
+            int s = q.size();
+            sum = 0;
+            while (s--) {
+                TreeNode* curr = q.front();
+                q.pop();
+                sum += curr->val;
+                if (curr->left) q.push(curr->left);
+                if (curr->right) q.push(curr->right);
+            }
+        }
         return sum;
     }
 };
