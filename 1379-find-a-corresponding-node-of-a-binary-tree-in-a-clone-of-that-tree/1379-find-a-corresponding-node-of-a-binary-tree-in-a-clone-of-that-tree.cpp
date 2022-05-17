@@ -35,8 +35,13 @@ public:
     }
     
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) {
-        bool found = getPath(original, target);
-        if (!found) return nullptr;
-        return getClone(cloned, 0);
+        // bool found = getPath(original, target);
+        // if (!found) return nullptr;
+        // return getClone(cloned, 0);
+        
+        if (original == nullptr || original == target) return cloned;
+        TreeNode* res = getTargetCopy(original->left, cloned->left, target);
+        if (res) return res;
+        return getTargetCopy(original->right, cloned->right, target);
     }
 };
