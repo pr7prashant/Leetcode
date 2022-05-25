@@ -10,24 +10,19 @@ public:
             if (temp.empty() || temp.back() < e[1]) {
                 temp.push_back(e[1]);
             } else {
-                // int idx = lower_bound(temp.begin(), temp.end(), e[1]) - temp.begin();
-                // temp[idx] = e[1];
-                
-                int l = 0, r = temp.size() - 1;
-                while (l < r) {
-                    int mid = (l + r) / 2;
+                int start = 0, end = temp.size() - 1;
+                while (start < end) {
+                    int mid = start + (end - start) / 2;
                     if (e[1] > temp[mid]) {
-                        l = mid + 1;
+                        start = mid + 1;
                     } else {
-                        r = mid;
+                        end = mid;
                     }
                 }
-                temp[l] = e[1];
+                temp[start] = e[1];
             }
         }
         
         return temp.size();
     }
 };
-
-// 3,4,4,7
