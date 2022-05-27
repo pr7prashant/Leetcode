@@ -4,7 +4,7 @@ public:
         int count = 0;
         while (num > 0) {
             if (num & 1) num--;
-            else num /= 2;
+            else num >>= 1;
             count++;
         }    
         return count;
