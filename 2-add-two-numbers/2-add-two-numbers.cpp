@@ -18,7 +18,6 @@ public:
             it->next = temp;
             it = it->next;        
         }
-        // cout << "Head : " << head->val << endl;
     }
     
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -32,8 +31,6 @@ public:
             l1 = l1->next;
             l2 = l2->next;
         }
-        
-        // cout << newHead->val << endl;
         
         while (l1) {
             int digit = (l1->val + carry) % 10;
