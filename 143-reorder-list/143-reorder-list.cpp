@@ -10,26 +10,56 @@
  */
 class Solution {
 public:
+    ListNode* reverse(ListNode* head) {
+        if (!head || !head->next) return head;
+        
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        while (head) {
+            head = head->next;
+            curr->next = prev;
+            prev = curr;
+            curr = head;
+        }
+        
+        return prev;
+    }
+    
+    ListNode* merge(ListNode* head1, ListNode* head2, bool isFirst) {
+        if (!head1) return head2;
+        if (!head2) return head1;
+        
+        ListNode* newHead;
+        if (isFirst) {
+            newHead = head1;
+            cout << " even : " << newHead->val << endl;
+            newHead->next = merge(head1->next, head2, false);
+        } else {
+            newHead = head2;
+            cout << " odd : " << newHead->val << endl;
+            newHead->next = merge(head1, head2->next, true);
+        }
+        
+        return newHead;
+    }
+    
     void reorderList(ListNode* head) {
         if (!head || !head->next) return;
         
-        vector<int> nums;
-        ListNode* it = head;
-        while (it) {
-            nums.push_back(it->val);
-            it = it->next;
+        // Find mid
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
         }
         
-        int curr = 0, i = 0, j = nums.size() - 1;
-        it = head;
-        while (it) {
-            if (curr % 2 == 0) {
-                it->val = nums[i++];
-            } else {
-                it->val = nums[j--];
-            }
-            it = it->next;
-            curr++;
-        }
+        // Reverse second half
+        ListNode* head2 = slow->next;
+        slow->next = nullptr; 
+        head2 = reverse(head2);
+        
+        // Merge first and second half
+        head = merge(head, head2, true);
     }
 };
