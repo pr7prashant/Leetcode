@@ -32,11 +32,9 @@ public:
         ListNode* newHead;
         if (isFirst) {
             newHead = head1;
-            cout << " even : " << newHead->val << endl;
             newHead->next = merge(head1->next, head2, false);
         } else {
             newHead = head2;
-            cout << " odd : " << newHead->val << endl;
             newHead->next = merge(head1, head2->next, true);
         }
         
