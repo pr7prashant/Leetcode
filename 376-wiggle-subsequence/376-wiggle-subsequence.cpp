@@ -7,7 +7,7 @@ public:
         while (i < nums.size() && nums[i] == nums[i-1]) i++;
         if (i == nums.size()) return 1;
         
-        int ans = 2;
+        int ans = 1;
         bool inc = nums[i] > nums[i-1];
         while (i < nums.size()) {
             if (inc) {
@@ -16,7 +16,7 @@ public:
                 while (i < nums.size() && nums[i] <= nums[i-1]) i++;
             }
             
-            if (i < nums.size()) ans++;
+            ans++;
             inc = !inc;
         }
         
