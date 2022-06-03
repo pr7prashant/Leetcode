@@ -3,22 +3,16 @@ public:
     vector<vector<int>> presum;
     
     NumMatrix(vector<vector<int>>& matrix) {
-        presum = vector<vector<int>>(matrix.size(), vector<int>(matrix[0].size()));
-        for (int i = 0; i < matrix.size(); i++) {
-            for (int j = 0; j < matrix[0].size(); j++) {
-                if (j == 0) presum[i][j] = matrix[i][j];
-                else presum[i][j] = matrix[i][j] + presum[i][j-1];
+        presum = vector<vector<int>>(matrix.size()+1, vector<int>(matrix[0].size()+1, 0));
+        for (int i = 1; i < presum.size(); i++) {
+            for (int j = 1; j < presum[0].size(); j++) {
+                presum[i][j] = matrix[i-1][j-1] + presum[i][j-1] + presum[i-1][j] - presum[i-1][j-1];
             }
         }
     }
     
     int sumRegion(int row1, int col1, int row2, int col2) {
-        int sum = 0;
-        for (int i = row1; i <= row2; i++) {
-            if (col1 == 0) sum += presum[i][col2];
-            else sum += presum[i][col2] - presum[i][col1-1];
-        }
-        return sum;
+        return presum[row2+1][col2+1] - presum[row2+1][col1] - presum[row1][col2+1] + presum[row1][col1];
     }
 };
 
