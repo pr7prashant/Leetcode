@@ -15,7 +15,6 @@ public:
             } else {
                 while (i < nums.size() && nums[i] <= nums[i-1]) i++;
             }
-            
             ans++;
             inc = !inc;
         }
