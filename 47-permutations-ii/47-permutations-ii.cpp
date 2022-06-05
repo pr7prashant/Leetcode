@@ -16,7 +16,6 @@ public:
     }
     
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
         helper(nums, 0);
         return ans;
     }
