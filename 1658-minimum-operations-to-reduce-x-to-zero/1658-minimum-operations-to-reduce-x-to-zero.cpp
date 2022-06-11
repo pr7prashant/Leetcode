@@ -13,7 +13,7 @@ public:
         }
         
         sum = 0;
-        for (int j = nums.size() - 1; j >= 0; j--) {
+        for (int j = nums.size() - 1; j >= 0 && sum <= x; j--) {
             sum += nums[j];
             int target = x - sum;
             if (presum.find(target) != presum.end() && presum[target] - 1 < j) {
