@@ -5,10 +5,8 @@ public:
         
         if (dp[row][col] != -1) return dp[row][col];
         
-        // int ans = INT_MAX;
         int res1 = triangle[row][col] + solve(triangle, row + 1, col, dp);
         int res2 = triangle[row][col] + solve(triangle, row + 1, col + 1, dp);
-        // ans = min({ans, res1, res2});
         
         return dp[row][col] = min(res1, res2);
     }
