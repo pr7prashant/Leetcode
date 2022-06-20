@@ -19,7 +19,6 @@ public:
             if (!curr->next[idx]) curr->next[idx] = new TrieNode(ch);
             curr = curr->next[idx];
             curr->wordCount += 1;
-            cout << ch << " : " << "idx : " << idx << " : " << curr->wordCount << endl;
         }
         return curr->wordCount;
     }
@@ -39,7 +38,6 @@ public:
         for (string& word : words) {
             reverse(word.begin(), word.end());
             int wordCount = insert(root, word);
-            cout << word << " : " << wordCount << endl;
             if (wordCount == 1) ans += word.length() + 1;
         }
         
