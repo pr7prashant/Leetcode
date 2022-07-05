@@ -4,11 +4,10 @@ public:
         if (nums.empty()) return 0;
         
         set<int> st(nums.begin(), nums.end());
-        int count = 1, ans = 1;
+        int ans = 1;
         for (int n : st) {
             if (st.find(n - 1) != st.end()) continue;
-            
-            int next = n + 1;
+            int count = 1, next = n + 1;
             while (st.find(next) != st.end()) {
                 count++;
                 next += 1;
