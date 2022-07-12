@@ -27,10 +27,9 @@ public:
         for (int len : matchsticks) total += len;
         if (total % 4 != 0) return false;
         
+        // Solve for larger matchsticks first to detect failure early
         sort(matchsticks.begin(), matchsticks.end(), greater<int>());
         vector<int> square(4, 0);
-        
-        // for (int len : square) cout << len << " , ";
         
         return solve(matchsticks, square, total / 4, 0);
     }
