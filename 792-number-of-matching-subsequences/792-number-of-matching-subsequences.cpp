@@ -1,6 +1,8 @@
 class Solution {
 public:
-    bool isSubsequence(string& s1, string& s2, unordered_map<string,bool>& dp) {
+    unordered_map<string,bool> dp;
+    
+    bool isSubsequence(string& s1, string& s2) {
         if (dp.find(s2) != dp.end()) return dp[s2];
         
         int i = 0, j = 0;
@@ -13,10 +15,9 @@ public:
     }
     
     int numMatchingSubseq(string s, vector<string>& words) {
-        unordered_map<string,bool> dp;
         int count = 0;
         for (string& w : words) {
-            if (isSubsequence(s, w, dp)) count++;
+            if (isSubsequence(s, w)) count++;
         }
         return count;
     }
