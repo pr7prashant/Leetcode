@@ -7,11 +7,11 @@ public:
             else {
                 if (open == 0) {
                     swap++;
-                    open++;
+                    // open++;
                 }
                 else open--;
             }
         }
-        return swap;
+        return (swap + 1) / 2;
     }
 };
