@@ -13,12 +13,20 @@ public:
     }
     
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int rows = matrix.size(), cols = matrix[0].size();
-        int start = 0, end = matrix.size() - 1;
-        for (int i = 0; i < matrix.size(); i++) {
-            if (target >= matrix[i][0] && target <= matrix[i][cols-1] && binSearch(matrix[i], target)) return true;
-        }
+//         int rows = matrix.size(), cols = matrix[0].size();
+//         int start = 0, end = matrix.size() - 1;
+//         for (int i = 0; i < matrix.size(); i++) {
+//             if (target >= matrix[i][0] && target <= matrix[i][cols-1] && binSearch(matrix[i], target)) return true;
+//         }
         
+//         return false;
+        
+        int i = 0, j = matrix[0].size() - 1;
+        while (i < matrix.size() && j >= 0) {
+            if (matrix[i][j] == target) return true;
+            if (target < matrix[i][j]) j--;
+            else if (target > matrix[i][j]) i++;
+        }
         return false;
     }
 };
