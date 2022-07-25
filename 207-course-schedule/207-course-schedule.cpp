@@ -2,6 +2,7 @@ class Solution {
 public:
     bool hasCycle(unordered_map<int, vector<int>>& graph, int start, vector<bool>& visited, vector<bool>& path) {
         visited[start] = path[start] = true;
+        path[start] = true;
         for (int n : graph[start]) {
             if (!visited[n]) {
                 if (hasCycle(graph, n, visited, path)) return true;
