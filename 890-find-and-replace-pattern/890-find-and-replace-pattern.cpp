@@ -5,10 +5,10 @@ public:
         
         unordered_map<char,char> mp1, mp2;
         for (int i = 0; i < w1.length(); i++) {
-            if (mp1.find(w1[i]) == mp1.end() && mp2.find(w2[i]) == mp2.end()) {
+            if (!mp1.count(w1[i]) && !mp2.count(w2[i])) {
                 mp1[w1[i]] = w2[i];
                 mp2[w2[i]] = w1[i];
-            } else if (mp1.find(w1[i]) == mp1.end() || mp2.find(w2[i]) == mp2.end() || mp1[w1[i]] != w2[i] || mp2[w2[i]] != w1[i]) {
+            } else if (!mp1.count(w1[i]) || !mp2.count(w2[i]) || mp1[w1[i]] != w2[i] || mp2[w2[i]] != w1[i]) {
                 return false;
             }
         }
