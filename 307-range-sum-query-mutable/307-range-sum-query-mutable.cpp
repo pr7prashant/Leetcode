@@ -7,8 +7,6 @@ public:
         size = nums.size();
         tree = vector<int>(size * 4, 0);
         buildSegmentTree(nums, 0, 0, size - 1);
-        // for (int n : tree) cout << n << " , ";
-        // cout << endl;
     }
     
     void buildSegmentTree(vector<int>& nums, int idx, int start, int end) {
@@ -52,7 +50,6 @@ public:
     
     void update(int index, int val) {
         updateNode(0, index, val, 0, size - 1);
-        // for (int n : tree) cout << n << " , ";
     }
     
     int sumRange(int left, int right) {
