@@ -29,10 +29,8 @@ public:
             if (!curr->adj[idx]) curr->adj[idx] = new TrieNode(word[i]);
             curr = curr->adj[idx];
             curr->wordCount += 1;
-            // cout << curr->ch << ",";
         }
         curr->wordEnd += 1;
-        // cout << endl;
     }
     
     void dfs(vector<vector<char>>& board, TrieNode* root, string str, int x, int y, vector<vector<bool>>& visited) {
@@ -69,7 +67,6 @@ public:
                 dfs(board, root, "", i, j, visited);
             }
         }
-        // dfs(board, root, "", 0, 0);
         
         return ans;
     }
