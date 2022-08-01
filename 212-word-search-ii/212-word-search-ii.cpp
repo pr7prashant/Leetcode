@@ -3,11 +3,6 @@ public:
     vector<string> ans;
     vector<pair<int,int>> moves = { {0,1}, {1,0}, {0,-1}, {-1,0} };
     
-    bool isValid(vector<vector<char>>& board, int x, int y) {
-        if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size()) return true;
-        return false;
-    }
-    
     struct TrieNode {
         char ch;
         int wordCount;
@@ -21,6 +16,11 @@ public:
             for (int i = 0; i < 26; i++) adj[i] = nullptr;
         }
     };
+    
+    bool isValid(vector<vector<char>>& board, int x, int y) {
+        if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size()) return true;
+        return false;
+    }
     
     void buildTrie(string& word, TrieNode* root) {
         TrieNode* curr = root;
