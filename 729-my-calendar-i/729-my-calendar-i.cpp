@@ -15,9 +15,9 @@ public:
         
         if (!hasConflict) {
             intervals.push_back({ start, end });
-            sort(intervals.begin(), intervals.end(), [](pair<int,int>& a, pair<int,int>& b) {
-                return b.first > a.first;
-            });
+            // sort(intervals.begin(), intervals.end(), [](pair<int,int>& a, pair<int,int>& b) {
+            //     return b.first > a.first;
+            // });
             return true;
         }
         
