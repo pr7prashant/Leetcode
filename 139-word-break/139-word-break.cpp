@@ -62,8 +62,6 @@ public:
         
         if (search(str)) return dp[str] = true;
         
-        TrieNode* curr = root;
-        
         for (int i = 1; i <= str.length(); i++) {
             string s1 = str.substr(0, i);
             string s2 = str.substr(i, str.length() - i);
