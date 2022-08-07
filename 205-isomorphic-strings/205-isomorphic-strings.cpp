@@ -10,8 +10,7 @@ public:
                 sMap[s[i]] = t[i];
                 tMap[t[i]] = s[i];
             } else if (
-                sMap.find(s[i]) == sMap.end() ||
-                tMap.find(t[i]) == tMap.end() ||
+                !sMap.count(s[i]) || !tMap.count(t[i]) ||
                 (sMap[s[i]] != t[i] || tMap[t[i]] != s[i])                
             ) {
                 return false;    
