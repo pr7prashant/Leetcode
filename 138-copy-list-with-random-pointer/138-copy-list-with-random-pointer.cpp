@@ -31,8 +31,8 @@ public:
         it = head;
         while (it) {
             Node* duplicate = it->next;
-            it = duplicate->next;
             duplicate->random = duplicate->random ? duplicate->random->next : nullptr;
+            it = duplicate->next;
         }
         
         it = head;
