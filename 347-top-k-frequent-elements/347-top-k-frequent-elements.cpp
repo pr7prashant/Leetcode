@@ -9,7 +9,7 @@ public:
             int num = it->first;
             int freq = it->second;
             
-            if (pq.size() < k || freq > pq.top().first) pq.push({ freq, num });
+            pq.push({ freq, num });
             if (pq.size() > k) pq.pop();
         }
         
