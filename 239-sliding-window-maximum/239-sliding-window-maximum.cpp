@@ -10,7 +10,7 @@ public:
             ls.push_back(j);
             
             if (j - i + 1 == k) {
-                while (ls.front() < i) ls.pop_front();                
+                if (ls.front() < i) ls.pop_front();                
                 res.push_back(nums[ls.front()]);
                 i++;
             }
