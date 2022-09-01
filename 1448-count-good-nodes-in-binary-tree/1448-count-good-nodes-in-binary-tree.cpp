@@ -15,7 +15,6 @@ public:
         if (!root) return 0; 
         
         int ans = root->val >= mx ? 1 : 0;
-        
         int l = traverse(root->left, max(mx, root->val));
         int r = traverse(root->right, max(mx, root->val));
         
