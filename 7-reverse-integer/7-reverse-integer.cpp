@@ -7,6 +7,7 @@ public:
         x = abs(x);
         
         while (pow(10,p) <= x) p++;
+        
         while (x > 0) {
             int d = x % 10;
             x /= 10;
