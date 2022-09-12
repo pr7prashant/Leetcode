@@ -6,12 +6,13 @@ public:
         
         // Map O(n) Time - O(n) Space
         unordered_map<int, int> mp;
-        for (int i = 0; i < len; i++) mp[nums[i]]++;
+        for (int n : nums) mp[n]++;
         
         for (auto it = mp.begin(); it != mp.end(); it++) {
-            if (k == 0) {
-                if (it->second > 1) ans++;
-            } else if (mp.find(it->first + k) != mp.end()) {
+            if (
+                (k == 0 && it->second > 1) || 
+                (k > 0 && mp.count(it->first + k))
+            ) {
                 ans++;
             }
         }
