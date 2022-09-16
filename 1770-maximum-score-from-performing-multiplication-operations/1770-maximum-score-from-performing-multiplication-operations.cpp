@@ -6,7 +6,7 @@ public:
         if (dp[i][start] != INT_MIN) return dp[i][start];
         
         int pickLeft = nums[start] * multipliers[i] + helper(nums, multipliers, i+1, start+1, dp);
-        int pickRight = nums[nums.size()+start-i-1] * multipliers[i] + helper(nums, multipliers, i+1, start, dp);
+        int pickRight = nums[nums.size()-(i-start)-1] * multipliers[i] + helper(nums, multipliers, i+1, start, dp);
         
         return dp[i][start] = max(pickLeft, pickRight);
     }
