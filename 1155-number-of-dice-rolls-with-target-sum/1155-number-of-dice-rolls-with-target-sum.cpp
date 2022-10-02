@@ -13,7 +13,6 @@ public:
             ans = (ans + solve(n-1, k, target - i, dp)) % MOD;
         }
         
-        // cout << n << "," << target << " = " << ans << endl;
         return dp[n][target] = ans;
     }
     
