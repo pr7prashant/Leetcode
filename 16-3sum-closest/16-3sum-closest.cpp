@@ -7,6 +7,7 @@ public:
             int i = k + 1, j = nums.size() - 1;
             while (i < j) {
                 int sum = nums[k] + nums[i] + nums[j];
+                if (sum == target) return sum;
                 ans = abs(sum - target) < abs(ans - target) ? sum : ans;
                 if (sum < target) i++;
                 else j--;
