@@ -1,30 +1,16 @@
 class Solution {
 public:
-    bool isPalindrome(string& str) {
-        int len = str.length();
-        for (int i = 0; i < len / 2; i++) {
-            if (str[i] != str[len - i - 1]) return false;
-        }
-        return true;
-    }
-    
     string breakPalindrome(string pal) {
         if (pal.length() == 1) return "";
         
-        bool changed = false;
-        for (int i = 0; i < pal.length() && !changed; i++) {
-            for (char ch = 'a'; ch < pal[i]; ch++) {
-                char og = pal[i];
-                pal[i] = ch;
-                if (!isPalindrome(pal)) {
-                    changed = true;
-                    break;
-                }
-                pal[i] = og;
+        for (int i = 0; i < pal.length() / 2; i++) {
+            if (pal[i] != 'a') {
+                pal[i] = 'a';
+                return pal;
             }
         }
         
-        if (!changed) pal[pal.length() - 1] = 'b';
+        pal[pal.length() - 1] = 'b';
         
         return pal;
     }
