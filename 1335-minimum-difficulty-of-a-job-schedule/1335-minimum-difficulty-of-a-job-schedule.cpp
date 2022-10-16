@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int MOD = 1e7+7;
+    int MOD = 1e9+7;
     
     int solve(vector<int>& jd, int d, int start, vector<vector<int>>& dp) {
         if (d < 0) return MOD;
@@ -9,10 +9,10 @@ public:
         
         if (dp[start][d] != -1) return dp[start][d];
         
-        int ans = INT_MAX, mx = jd[start];
+        int ans = INT_MAX, curr_max = jd[start];
         for (int i = start; i < jd.size(); i++) {
-            mx = max(mx, jd[i]);
-            ans = min(ans, mx + solve(jd, d-1, i+1, dp));
+            curr_max = max(curr_max, jd[i]);
+            ans = min(ans, curr_max + solve(jd, d-1, i+1, dp));
         }
         
         return dp[start][d] = ans;
