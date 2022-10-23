@@ -9,8 +9,7 @@ public:
         p &= -p; // We'll use only the last significant set bit
 
         // Split the numbers in 2 categories and xor them
-        for (unsigned i = 0; i < nums.size(); ++i)
-        {
+        for (unsigned i = 0; i < nums.size(); ++i) {
             ((nums[i] & p) == 0) ? acc1 ^= nums[i] : acc2 ^= nums[i];
             (((i + 1) & p) == 0) ? acc1 ^= i + 1 : acc2 ^= i + 1;
         }
