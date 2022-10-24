@@ -1,22 +1,14 @@
 class Solution {
 public:
-    bool isUnique(string str) {
-        unordered_map<char,bool> mp;
-        for (char ch : str) {
-            if (mp.count(ch)) return false;
-            mp[ch] = true;
-        }
-        return true;
-    }
-    
     int solve(vector<string>& arr, string str, int curr) {
-        if (curr == arr.size()) return str.length();
+        unordered_set<char> s(str.begin(), str.end());
+        if (s.size() != str.length()) return 0;
         
-        if (isUnique(str + arr[curr])) {
-            return max(solve(arr, str+arr[curr], curr+1), solve(arr, str, curr+1));
-        }
+        int ans = str.length();
+        for (int i = curr; i < arr.size(); i++)
+            ans = max(ans, solve(arr, str+arr[i], i+1));
         
-        return solve(arr, str, curr+1);
+        return ans;
     }
     
     int maxLength(vector<string>& arr) {
