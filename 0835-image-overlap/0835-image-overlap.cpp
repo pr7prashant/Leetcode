@@ -13,8 +13,8 @@ public:
     
     int largestOverlap(vector<vector<int>>& img1, vector<vector<int>>& img2) {
         int ans = 0;
-        for (int dx = -(int)img1.size(); dx < (int)img1.size(); dx++) {
-            for (int dy = -(int)img1[0].size(); dy < (int)img1[0].size(); dy++) {
+        for (int dx = -(int)img1.size()+1; dx < (int)img1.size(); dx++) {
+            for (int dy = -(int)img1[0].size()+1; dy < (int)img1[0].size(); dy++) {
                 ans = max(ans, getOverlap(img1, img2, dx, dy));
             }
         }
