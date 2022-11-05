@@ -36,15 +36,12 @@ public:
     }
     
     void deleteWord(string word) {
-        //cout << "Deleting : " << word << endl;
         TrieNode* curr = root;
         for (int i = 0; i < word.length(); i++) {
             int idx = word[i] - 'a';
-            //cout << curr->ch << " ";
             curr = curr->adj[idx];
             curr->wordCount -= 1;
         }
-        //cout << endl;
         curr->wordEnd -= 1;
     }
     
@@ -53,7 +50,6 @@ public:
         TrieNode* curr = root->adj[c - 'a'];
         if (!curr || curr->wordCount == 0) return;
         
-        //curr = curr->adj[c - 'a'];
         if (curr->wordEnd > 0) {
             ans.push_back(str + board[x][y]);
             curr->wordEnd -= 1;
