@@ -19,10 +19,7 @@ public:
         if (!root) return 0;
         int ld = getDepth(root->left);
         int rd = getDepth(root->right);
-        int ans = 0;
-        if (ld == rd) ans = pow(2, ld) + countNodes(root->right);
-        else ans = 1 + countNodes(root->left) + countNodes(root->right);
-        
-        return ans;
+        if (ld == rd) return pow(2, ld) + countNodes(root->right);
+        return 1 + countNodes(root->left) + countNodes(root->right);
     }
 };
